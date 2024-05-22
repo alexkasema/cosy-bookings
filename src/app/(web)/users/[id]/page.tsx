@@ -13,6 +13,7 @@ import useSWR from "swr";
 import Image from 'next/image';
 import LoadingSpinner from "../../loading";
 import Table from '@/components/Table/Table';
+import Chart from "@/components/Chart/Chart";
 
 
 const UserDetails = (props: { params: { id: string } }) => {
@@ -150,6 +151,12 @@ const UserDetails = (props: { params: { id: string } }) => {
                             setRoomId={setRoomId}
                         />
                         )
+                    ) : (
+                        <></>
+                    )}
+
+                    {currentNav === 'amount' ? (
+                        userBookings && <Chart userBookings={userBookings} />
                     ) : (
                         <></>
                     )}
